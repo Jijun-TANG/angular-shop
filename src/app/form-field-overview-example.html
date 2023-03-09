@@ -1,0 +1,14 @@
+<mat-form-field>
+  <mat-label>Device Tag List</mat-label>
+  <mat-select multiple [formControl]="tagList" required>
+    <mat-option *ngFor="let option of tags" [value]="option">
+      {{ option }}
+    </mat-option>
+  </mat-select>
+  <mat-error *ngIf="tags.length === 0">
+    Please define {{ deviceType === 'enb' ? 'eNB' : 'CPE' }} tag(s) with
+    <a href="/configuration/tag-manager" class="text-primary-500"
+      >Tag Manager</a
+    >
+  </mat-error>
+</mat-form-field>
